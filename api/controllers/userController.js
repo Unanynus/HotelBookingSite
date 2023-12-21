@@ -15,7 +15,7 @@ export const deleteUser = async(req,res)=>{
   
   
     try{
-        await Hotel.findByIdAndDelete(req.params.id) ;
+        await User.findByIdAndDelete(req.params.id) ;
         res.status(200).json("user has been deleted");
     }catch(err){
         // throw err;
@@ -35,7 +35,7 @@ export const getUser = async(req,res)=>{
 };
 
 export const getUsers = async(req,res , next)=>{
-
+   console.log('inside get users');
     try{
         const users = await User.find();
         res.status(200).json(users);
